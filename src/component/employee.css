@@ -1,0 +1,149 @@
+:root {
+  --btn: #dbdbdb;
+  --btn-hover: #cacaca;
+  --item-bg: #f0f0f0;
+  --modal-bg: rgba(141, 141, 141, 0.541);
+}
+
+body {
+  font-family: sans-serif;
+  padding: 0 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-employee {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--btn);
+}
+
+.add-employee:hover {
+  background-color: var(--btn-hover);
+}
+
+.employee {
+  display: flex;
+}
+
+.employee > div {
+  border: 1px solid black;
+  height: 450px;
+  overflow-y: scroll;
+}
+
+.employee__list {
+  width: 30%;
+}
+
+.employee__info {
+  width: 70%;
+}
+
+.employee__info,
+.employee__list {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.employee__info--title,
+.employee__list--title {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+.employee__list--name {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--item-bg);
+  padding: 0px 15px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+}
+.flex-1 {
+  flex: 1;
+}
+
+.employee__info--detail {
+  display: flex;
+}
+
+.employee__info--personal-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 40%;
+  /* max-width: 250px; */
+}
+
+.employee__info--personal-detail > img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.selectedUser {
+  background-color: var(--btn-hover);
+}
+
+.employee__info--extra-detail {
+  width: 60%;
+  display: flex;
+}
+
+.employee__info--education,
+.employee__info--skills,
+.employee__info--experience,
+.education__detail,
+.experience__detail,
+.skill__detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.employee__info--education,
+.employee__info--skills,
+.employee__info--experience {
+  gap: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+.employee__info--experience {
+  border-bottom: none;
+  margin-left: 3em;
+}
+
+.employee__info--other {
+  width: 40%;
+  padding-right: 10px;
+}
+
+.employee__info--experience {
+  width: 60%;
+}
+
+.key {
+  width: 90px;
+  display: inline-block;
+  color: darkgray;
+}
+
+strong {
+  margin-bottom: 2px;
+}
