@@ -1,9 +1,9 @@
-import { Employees } from "./component/Employees";
+import { EmployeeList } from "./component/EmployeeList";
 
 function App() {
   return (
     <div>
-      <Employees />
+      <EmployeeList />
     </div>
   );
 }

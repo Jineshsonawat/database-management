@@ -16,6 +16,10 @@ body {
   align-items: center;
 }
 
+.delete {
+  cursor: pointer;
+}
+
 .add-employee {
   padding: 10px 15px;
   border-radius: 20px;
