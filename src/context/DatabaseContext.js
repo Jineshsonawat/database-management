@@ -25,7 +25,7 @@ const Dataprovider = ({ children }) => {
 
   async function deleteUserDetail(singleUserDetail, wholeData) {
     const selectedUserId = singleUserDetail.id;
-    const deleteSelectedUserData = await axios.delete(
+    await axios.delete(
       `https://60d5a2c2943aa60017768b01.mockapi.io/candidate/${selectedUserId}`
     );
 

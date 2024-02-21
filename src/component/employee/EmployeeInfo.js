@@ -1,4 +1,4 @@
-import { useData } from "../context/DatabaseContext";
+import { useData } from "../../context/DatabaseContext";
 
 function EmployeeInfo() {
   const { selectedData, userDetails } = useData();

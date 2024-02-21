@@ -1,9 +1,9 @@
-import { Home } from "./Home.js";
+import { Login } from "./component/login/Login.js";
 
 function App() {
   return (
     <div>
-      <Home />
+      <Login />
     </div>
   );
 }

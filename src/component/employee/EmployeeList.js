@@ -1,4 +1,5 @@
-import { useData } from "../context/DatabaseContext";
+import { Link } from "react-router-dom";
+import { useData } from "../../context/DatabaseContext";
 
 function EmployeeList() {
   const { userDetails, selectedData, showUserDetail, deleteUserDetail } =
@@ -7,7 +8,10 @@ function EmployeeList() {
   return (
     <div className="employee__list">
       <span className="employee__list--title">Employee List</span>
-      <div>
+      <Link
+        to={`/candidate/${selectedData.id}`}
+        className="employee__list--link"
+      >
         {userDetails.map((user) => {
           const { name, id } = user;
           return (
@@ -35,7 +39,7 @@ function EmployeeList() {
             </div>
           );
         })}
-      </div>
+      </Link>
     </div>
   );
 }

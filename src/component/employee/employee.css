@@ -33,20 +33,22 @@ body {
 
 .employee {
   display: flex;
+  height: 100vh;
+  /* justify-content: center; */
 }
 
-.employee > div {
+.employee__list {
+  width: 30%;
   border: 1px solid black;
   height: 450px;
   overflow-y: scroll;
 }
 
-.employee__list {
-  width: 30%;
-}
-
 .employee__info {
   width: 70%;
+  border: 1px solid black;
+  height: 450px;
+  overflow-y: scroll;
 }
 
 .employee__info,
@@ -74,9 +76,14 @@ body {
   border-radius: 15px;
 }
 
+.employee__list--link {
+  text-decoration: none;
+}
+
 .name {
   display: flex;
   align-items: center;
+  color: black;
 }
 .flex-1 {
   flex: 1;

@@ -1,8 +1,9 @@
-import { EmployeeList } from "./component/EmployeeList";
-import { EmployeeInfo } from "./component/EmployeeInfo";
-import "./component/employee.css";
+import { Route, Routes } from "react-router-dom";
+import { EmployeeList } from "../component/employee/EmployeeList.js";
+import "../component/employee/employee.css";
+import { EmployeeInfo } from "../component/employee/EmployeeInfo.js";
 
-// const data = {
+//   const data = {
 //   profile_picture: "https://cdn-icons-png.flaticon.com/512/0/93.png",
 //   name: "Ravi",
 //   address: "Bikaner",
@@ -64,7 +65,7 @@ import "./component/employee.css";
 //   id: "1",
 // };
 
-function Home() {
+function RouterMain() {
   // function postData() {
   //   const post = axios.post(
   //     "https://60d5a2c2943aa60017768b01.mockapi.io/candidate",
@@ -75,18 +76,19 @@ function Home() {
 
   return (
     <div>
-      <header className="header">
-        {/* <button onClick={postData}>Post</button> */}
+      {/* <button onClick={postData}>Post</button> */}
+      {/* <header className="header">
         <h1>Employee Database Management</h1>
         <button className="add-employee">Add Employee</button>
-      </header>
-
+      </header> */}
       <div className="employee">
         <EmployeeList />
-        <EmployeeInfo />
+        <Routes>
+          <Route path="/candidate/:id" element={<EmployeeInfo />} />
+        </Routes>
       </div>
     </div>
   );
 }
 
-export { Home };
+export { RouterMain };
