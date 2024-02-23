@@ -7,7 +7,7 @@ const DatabaseContext = createContext();
 const Dataprovider = ({ children }) => {
   const [userDetails, setUserDetails] = useState([]);
   const [selectedData, setSelectedData] = useState({});
-  const [isLoggedIn, setIsLogedIn] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -46,8 +46,8 @@ const Dataprovider = ({ children }) => {
         setUserDetails,
         setSelectedData,
         deleteUserDetail,
-        isLoggedIn,
-        setIsLogedIn,
+        isUserLoggedIn,
+        setIsUserLoggedIn,
       }}
     >
       {children}

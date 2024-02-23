@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import { EmployeeList } from "../component/employee/EmployeeList.js";
 import "../component/employee/employee.css";
 import { EmployeeInfo } from "../component/employee/EmployeeInfo.js";
+import { useData } from "../context/DatabaseContext.js";
+
 // import axios from "axios";
 
 // const data = {
@@ -75,15 +77,19 @@ function RouterMain() {
   //   console.log(post);
   // }
 
+  const { setIsUserLoggedIn } = useData();
+
   return (
     <div>
       {/* <button onClick={postData}>Post</button> */}
-      <header className="header">
-        <h1>Employee Database Management</h1>
-        <button className="add-employee">Add Employee</button>
-      </header>
+      {setIsUserLoggedIn && (
+        <header className="header">
+          <h1>Employee Database Management</h1>
+          <button className="add-employee">Add Employee</button>
+        </header>
+      )}
       <div className="employee">
-        <EmployeeList />
+        {setIsUserLoggedIn && <EmployeeList />}
         <Routes>
           <Route path="/candidate/:id" element={<EmployeeInfo />} />
         </Routes>

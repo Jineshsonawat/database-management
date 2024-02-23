@@ -12,7 +12,7 @@ function Login() {
   const [inputUserName, setInputUserName] = useState("");
   const [inputUserPassword, setInputUserPassword] = useState("");
 
-  const { selectedData, setIsLogedIn } = useData();
+  const { selectedData, setIsUserLoggedIn } = useData();
   const navigate = useNavigate();
 
   function testCredentials(credential) {
@@ -24,7 +24,8 @@ function Login() {
     const { user, password } = credential;
 
     if (user === inputUserName && password === inputUserPassword) {
-      setIsLogedIn(true);
+      sessionStorage.setItem("isLogged", true);
+      setIsUserLoggedIn(true);
       navigate(`/candidate/${selectedData.id}`);
     }
   }
