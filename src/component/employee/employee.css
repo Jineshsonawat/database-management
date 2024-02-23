@@ -84,6 +84,7 @@ body {
   display: flex;
   align-items: center;
   color: black;
+  height: 100%;
 }
 .flex-1 {
   flex: 1;

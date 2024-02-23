@@ -2,6 +2,7 @@ import { useData } from "../../context/DatabaseContext";
 
 function EmployeeInfo() {
   const { selectedData, userDetails } = useData();
+
   const {
     profile_picture,
     address,

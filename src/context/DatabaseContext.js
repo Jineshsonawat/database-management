@@ -19,10 +19,6 @@ const Dataprovider = ({ children }) => {
     fetchData();
   }, []);
 
-  function showUserDetail(singleUserDetail) {
-    setSelectedData(singleUserDetail);
-  }
-
   async function deleteUserDetail(singleUserDetail, wholeData) {
     const selectedUserId = singleUserDetail.id;
     await axios.delete(
@@ -48,7 +44,6 @@ const Dataprovider = ({ children }) => {
         selectedData,
         setUserDetails,
         setSelectedData,
-        showUserDetail,
         deleteUserDetail,
       }}
     >

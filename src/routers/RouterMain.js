@@ -2,10 +2,11 @@ import { Route, Routes } from "react-router-dom";
 import { EmployeeList } from "../component/employee/EmployeeList.js";
 import "../component/employee/employee.css";
 import { EmployeeInfo } from "../component/employee/EmployeeInfo.js";
+// import axios from "axios";
 
-//   const data = {
+// const data = {
 //   profile_picture: "https://cdn-icons-png.flaticon.com/512/0/93.png",
-//   name: "Ravi",
+//   name: "Manoj",
 //   address: "Bikaner",
 //   phone: "9879879870",
 //   email: "test.candidate@nonstopio.com",
@@ -38,7 +39,7 @@ import { EmployeeInfo } from "../component/employee/EmployeeInfo.js";
 //   ],
 //   experience: [
 //     {
-//       company: "Self-Employed",
+//       company: "Buisness",
 //       project: "Some prohect",
 //       role: "SSE",
 //       team_size: 4,
@@ -77,10 +78,10 @@ function RouterMain() {
   return (
     <div>
       {/* <button onClick={postData}>Post</button> */}
-      {/* <header className="header">
+      <header className="header">
         <h1>Employee Database Management</h1>
         <button className="add-employee">Add Employee</button>
-      </header> */}
+      </header>
       <div className="employee">
         <EmployeeList />
         <Routes>
