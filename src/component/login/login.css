@@ -31,6 +31,7 @@ body {
   margin: 0.5em;
   height: 10%;
   background-color: #fafafc;
+  font-family: "poppins";
 }
 
 .login__main > p {
@@ -39,6 +40,7 @@ body {
   border-radius: 4px;
   margin: 0.5em;
   text-align: center;
+  cursor: pointer;
 }
 
 .red {
@@ -51,7 +53,8 @@ body {
   color: #383b3d !important;
 }
 
-.login__main > input:hover {
+.login__main > input:hover,
+.login__main > p:hover {
   outline: 1px solid black;
 }
 
