@@ -1,0 +1,106 @@
+h2 {
+  margin: 0;
+  /* min-width: fit-content; */
+  width: 30%;
+}
+
+aside {
+  width: 70%;
+}
+
+input {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 0.5em;
+  width: 50%;
+  height: 2em;
+  background-color: #f0f0f0;
+  font-family: "poppins";
+  font-size: 14px;
+}
+
+input:hover,
+input:focus,
+.gender:hover,
+.gender:focus {
+  outline: 1px solid black;
+}
+
+input::placeholder {
+  font-weight: 500;
+  color: black;
+  font-size: 14px;
+}
+
+.employee-add__details {
+  width: 70%;
+  border: 1px solid black;
+  height: 450px;
+  overflow-y: scroll;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-add__title {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+.flex-row {
+  display: flex;
+  /* justify-content: center; */
+}
+
+.gap-7 {
+  gap: 7em;
+}
+.gap-1 {
+  gap: 1em;
+}
+
+.width-100 {
+  width: 100%;
+}
+.width-60 {
+  width: 60%;
+}
+.border-bottom {
+  border-bottom: 1px solid black;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+
+.content-start {
+  align-items: flex-start;
+}
+
+.gender {
+  margin-bottom: 0.5em;
+  padding: 3px 3px;
+  height: 2.5em;
+  outline: none;
+  border: none;
+  width: 53.3%;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.span {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+  margin-right: 2px;
+}

@@ -32,7 +32,7 @@ body {
 
 .employee {
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
   /* justify-content: center; */
 }
 
@@ -47,7 +47,6 @@ body {
   width: 70%;
   border: 1px solid black;
   height: 450px;
-  overflow-y: scroll;
 }
 
 .employee__info,
@@ -91,6 +90,7 @@ body {
 
 .employee__info--detail {
   display: flex;
+  overflow-y: scroll;
 }
 
 .employee__info--personal-detail {

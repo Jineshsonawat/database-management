@@ -14,7 +14,9 @@ const Dataprovider = ({ children }) => {
       const value = await axios.get(
         "https://60d5a2c2943aa60017768b01.mockapi.io/candidate"
       );
+
       setUserDetails(value.data);
+      console.log(value.data);
       if (value.data.length) setSelectedData(value.data[0]);
     }
     fetchData();

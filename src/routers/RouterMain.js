@@ -1,8 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { EmployeeList } from "../component/employee/EmployeeList.js";
 import "../component/employee/employee.css";
 import { EmployeeInfo } from "../component/employee/EmployeeInfo.js";
 import { useData } from "../context/DatabaseContext.js";
+import { AddEmployeeForm } from "../component/form/AddEmployeeForm.js";
 
 // import axios from "axios";
 
@@ -69,29 +70,27 @@ import { useData } from "../context/DatabaseContext.js";
 // };
 
 function RouterMain() {
-  // function postData() {
-  //   const post = axios.post(
-  //     "https://60d5a2c2943aa60017768b01.mockapi.io/candidate",
-  //     data
-  //   );
-  //   console.log(post);
-  // }
-
   const { setIsUserLoggedIn } = useData();
+  const navigate = useNavigate();
 
   return (
     <div>
-      {/* <button onClick={postData}>Post</button> */}
       {setIsUserLoggedIn && (
         <header className="header">
           <h1>Employee Database Management</h1>
-          <button className="add-employee">Add Employee</button>
+          <button
+            onClick={() => navigate("/candidate/new")}
+            className="add-employee"
+          >
+            Add Employee
+          </button>
         </header>
       )}
       <div className="employee">
         {setIsUserLoggedIn && <EmployeeList />}
         <Routes>
           <Route path="/candidate/:id" element={<EmployeeInfo />} />
+          <Route path="/candidate/new" element={<AddEmployeeForm />} />
         </Routes>
       </div>
     </div>

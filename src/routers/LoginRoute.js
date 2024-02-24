@@ -6,9 +6,8 @@ function LoginRoute() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<DefaultPage />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="*" element={<Login />} /> */}
+        <Route path="*" element={<DefaultPage />} />
       </Routes>
     </div>
   );

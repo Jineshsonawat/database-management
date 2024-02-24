@@ -54,7 +54,9 @@ body {
 }
 
 .login__main > input:hover,
-.login__main > p:hover {
+.login__main > p:hover,
+.login__main > input:focus,
+.login__main > p:focus {
   outline: 1px solid black;
 }
 
