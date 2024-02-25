@@ -84,6 +84,10 @@ input::placeholder {
   align-items: flex-start;
 }
 
+.content-center {
+  justify-content: center;
+}
+
 .gender {
   margin-bottom: 0.5em;
   padding: 3px 3px;
@@ -103,4 +107,27 @@ input::placeholder {
 input[type="checkbox"] {
   margin: 0;
   margin-right: 2px;
+}
+
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus {
+  outline: none;
+}
+
+button[type="button"],
+button[type="submit"] {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #dbdbdb;
+}
+
+button[type="button"]:hover,
+button[type="submit"]:hover {
+  background-color: #cacaca;
+}
+
+button[type="submit"] {
+  margin-top: 2em;
+  width: 10%;
 }
