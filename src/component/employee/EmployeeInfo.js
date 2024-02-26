@@ -16,9 +16,16 @@ function EmployeeInfo() {
     experience = [],
   } = selectedData;
 
+  function handleEdit() {}
+
   return (
     <div className="employee__info">
-      <span className="employee__info--title">Employee Information</span>
+      <div className="employee__info--title">
+        <span className="title">Employee Information</span>
+        <button className="edit" onClick={handleEdit}>
+          Edit
+        </button>
+      </div>
       {userDetails.length === 0 ? (
         ""
       ) : (
