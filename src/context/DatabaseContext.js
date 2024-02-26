@@ -16,7 +16,7 @@ const Dataprovider = ({ children }) => {
       );
 
       setUserDetails(value.data);
-      console.log(value.data);
+
       if (value.data.length) setSelectedData(value.data[0]);
     }
     fetchData();

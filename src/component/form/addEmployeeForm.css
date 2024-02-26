@@ -38,7 +38,6 @@ input::placeholder {
   width: 70%;
   border: 1px solid black;
   height: 450px;
-  overflow-y: scroll;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
@@ -62,6 +61,9 @@ input::placeholder {
 }
 .gap-1 {
   gap: 1em;
+}
+.gap-2 {
+  gap: 2em;
 }
 
 .width-100 {
@@ -130,4 +132,10 @@ button[type="submit"]:hover {
 button[type="submit"] {
   margin-top: 2em;
   width: 10%;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
