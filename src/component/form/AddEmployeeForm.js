@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./addEmployeeForm.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useData } from "../../context/DatabaseContext";
 
 function AddEmployeeForm() {
   const [formData, setFormData] = useState({
@@ -32,11 +35,12 @@ function AddEmployeeForm() {
     experience,
   } = formData;
 
-  console.log(formData);
+  const navigate = useNavigate();
+
+  const { selectedData, fetchData } = useData();
 
   function handlePersonalDetails(event) {
     const { name, value } = event.target;
-    console.log(event.target);
 
     setFormData((prev) => ({
       ...prev,
@@ -121,10 +125,26 @@ function AddEmployeeForm() {
     setFormData((prev) => ({ ...prev, [key]: list }));
   }
 
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+
+    await axios.post(
+      "https://60d5a2c2943aa60017768b01.mockapi.io/candidate",
+      formData
+    );
+
+    fetchData();
+
+    navigate(`/candidate/${selectedData.id}`);
+  }
+
   return (
     <div className="employee-add__details">
       <span className="employee-add__title">Fill the Employee Details</span>
-      <form className="flex-column gap-2 overflow-y">
+      <form
+        onSubmit={handleFormSubmit}
+        className="flex-column gap-2 overflow-y"
+      >
         <div className="flex-row gap-7 ">
           <h2>Personal Details :- </h2>
 

@@ -9,35 +9,42 @@ const Dataprovider = ({ children }) => {
   const [selectedData, setSelectedData] = useState({});
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
+  console.log(userDetails);
+
+  async function fetchData() {
+    const value = await axios.get(
+      "https://60d5a2c2943aa60017768b01.mockapi.io/candidate"
+    );
+
+    setUserDetails(value.data);
+
+    if (value.data.length) setSelectedData(value.data[0]);
+  }
+
   useEffect(() => {
-    async function fetchData() {
-      const value = await axios.get(
-        "https://60d5a2c2943aa60017768b01.mockapi.io/candidate"
-      );
-
-      setUserDetails(value.data);
-
-      if (value.data.length) setSelectedData(value.data[0]);
-    }
     fetchData();
   }, []);
 
   async function deleteUserDetail(singleUserDetail, wholeData) {
     const selectedUserId = singleUserDetail.id;
-    await axios.delete(
-      `https://60d5a2c2943aa60017768b01.mockapi.io/candidate/${selectedUserId}`
-    );
+    try {
+      await axios.delete(
+        `https://60d5a2c2943aa60017768b01.mockapi.io/candidate/${selectedUserId}`
+      );
 
-    const updatedData = wholeData.filter(({ id }) => id !== selectedUserId);
-    if (updatedData.length === 0) {
-      setSelectedData({});
+      const updatedData = wholeData.filter(({ id }) => id !== selectedUserId);
+      if (updatedData.length === 0) {
+        setSelectedData({});
+      }
+
+      if (selectedUserId === selectedData.id) {
+        setSelectedData(updatedData[0]);
+      }
+
+      setUserDetails(updatedData);
+    } catch (err) {
+      console.log(err);
     }
-
-    if (selectedUserId === selectedData.id) {
-      setSelectedData(updatedData[0]);
-    }
-
-    setUserDetails(updatedData);
   }
 
   return (
@@ -50,6 +57,7 @@ const Dataprovider = ({ children }) => {
         deleteUserDetail,
         isUserLoggedIn,
         setIsUserLoggedIn,
+        fetchData,
       }}
     >
       {children}
