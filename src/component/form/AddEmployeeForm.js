@@ -46,13 +46,6 @@ function AddEmployeeForm() {
       ...prev,
       [name]: value,
     }));
-
-    // if (profile_picture.length === 0) {
-    //   setFormData((prev) => ({
-    //     ...prev,
-    //     profile_picture: "https://cdn-icons-png.flaticon.com/512/0/93.png",
-    //   }));
-    // }
   }
 
   function handleHobbies(e) {
@@ -128,9 +121,15 @@ function AddEmployeeForm() {
   async function handleFormSubmit(e) {
     e.preventDefault();
 
+    const data = { ...formData };
+
+    if (data.profile_picture.length === 0) {
+      data.profile_picture = "https://cdn-icons-png.flaticon.com/512/0/93.png";
+    }
+
     await axios.post(
       "https://60d5a2c2943aa60017768b01.mockapi.io/candidate",
-      formData
+      data
     );
 
     fetchData();
@@ -143,7 +142,7 @@ function AddEmployeeForm() {
       <span className="employee-add__title">Fill the Employee Details</span>
       <form
         onSubmit={handleFormSubmit}
-        className="flex-column gap-2 overflow-y"
+        className="flex-column gap-2 overflow-y padding-top"
       >
         <div className="flex-row gap-7 ">
           <h2>Personal Details :- </h2>
