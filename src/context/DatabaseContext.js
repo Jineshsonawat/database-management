@@ -8,6 +8,7 @@ const Dataprovider = ({ children }) => {
   const [userDetails, setUserDetails] = useState([]);
   const [selectedData, setSelectedData] = useState({});
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
 
   console.log(userDetails);
 
@@ -31,6 +32,8 @@ const Dataprovider = ({ children }) => {
       await axios.delete(
         `https://60d5a2c2943aa60017768b01.mockapi.io/candidate/${selectedUserId}`
       );
+
+      setShowEdit(false);
 
       const updatedData = wholeData.filter(({ id }) => id !== selectedUserId);
       if (updatedData.length === 0) {
@@ -58,6 +61,8 @@ const Dataprovider = ({ children }) => {
         isUserLoggedIn,
         setIsUserLoggedIn,
         fetchData,
+        showEdit,
+        setShowEdit,
       }}
     >
       {children}

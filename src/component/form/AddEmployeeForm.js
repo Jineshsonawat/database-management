@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./addEmployeeForm.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useData } from "../../context/DatabaseContext";
 
 function AddEmployeeForm() {
-  const [formData, setFormData] = useState({
+  const userDetailStructure = {
     profile_picture: "",
     name: "",
     email: "",
@@ -22,7 +22,16 @@ function AddEmployeeForm() {
         duration_to: "",
       },
     ],
-  });
+  };
+  const [formData, setFormData] = useState(userDetailStructure);
+  const { setSelectedData, selectedData, fetchData, showEdit, setShowEdit } =
+    useData();
+
+  useEffect(() => {
+    showEdit
+      ? setFormData({ ...selectedData })
+      : setFormData({ ...userDetailStructure });
+  }, [showEdit]);
 
   const {
     profile_picture,
@@ -36,8 +45,6 @@ function AddEmployeeForm() {
   } = formData;
 
   const navigate = useNavigate();
-
-  const { selectedData, fetchData } = useData();
 
   function handlePersonalDetails(event) {
     const { name, value } = event.target;
@@ -120,21 +127,27 @@ function AddEmployeeForm() {
 
   async function handleFormSubmit(e) {
     e.preventDefault();
-
     const data = { ...formData };
 
     if (data.profile_picture.length === 0) {
       data.profile_picture = "https://cdn-icons-png.flaticon.com/512/0/93.png";
     }
 
-    await axios.post(
-      "https://60d5a2c2943aa60017768b01.mockapi.io/candidate",
-      data
-    );
-
-    fetchData();
-
+    if (showEdit) {
+      await axios.put(
+        `https://60d5a2c2943aa60017768b01.mockapi.io/candidate/${selectedData.id}`,
+        data
+      );
+    } else {
+      await axios.post(
+        "https://60d5a2c2943aa60017768b01.mockapi.io/candidate",
+        data
+      );
+      fetchData();
+    }
     navigate(`/candidate/${selectedData.id}`);
+    setShowEdit(false);
+    // setSelectedData();
   }
 
   return (
@@ -195,6 +208,7 @@ function AddEmployeeForm() {
                   <input
                     type="checkbox"
                     onChange={(e) => handleHobbies(e)}
+                    checked={hobbies.includes("Reading")}
                     value="Reading"
                   />
                   <span className="span">Reading</span>
@@ -203,6 +217,7 @@ function AddEmployeeForm() {
                   <input
                     type="checkbox"
                     onChange={(e) => handleHobbies(e)}
+                    checked={hobbies.includes("Writing")}
                     value="Writing"
                   />
                   <span className="span">Writing</span>
@@ -211,6 +226,7 @@ function AddEmployeeForm() {
                   <input
                     type="checkbox"
                     onChange={(e) => handleHobbies(e)}
+                    checked={hobbies.includes("Drawing")}
                     value="Drawing"
                   />
                   <span className="span">Drawing</span>
@@ -219,6 +235,7 @@ function AddEmployeeForm() {
                   <input
                     type="checkbox"
                     onChange={(e) => handleHobbies(e)}
+                    checked={hobbies.includes("Sports")}
                     value="Sports"
                   />
                   <span className="span">Sports</span>
@@ -227,6 +244,7 @@ function AddEmployeeForm() {
                   <input
                     type="checkbox"
                     onChange={(e) => handleHobbies(e)}
+                    checked={hobbies.includes("Music")}
                     value="Music"
                   />
                   <span className="span">Music</span>
@@ -386,7 +404,6 @@ function AddEmployeeForm() {
                       value={exp.duration_to}
                       onChange={(e) => handleDetails(e, index, "experience")}
                       type="number"
-                      required
                       placeholder="End Date (e.g., Nov 2021)"
                     />
                   </div>

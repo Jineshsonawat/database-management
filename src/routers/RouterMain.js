@@ -70,7 +70,7 @@ import { AddEmployeeForm } from "../component/form/AddEmployeeForm.js";
 // };
 
 function RouterMain() {
-  const { setIsUserLoggedIn } = useData();
+  const { setIsUserLoggedIn, setShowEdit } = useData();
   const navigate = useNavigate();
 
   return (
@@ -79,7 +79,7 @@ function RouterMain() {
         <header className="header">
           <h1>Employee Database Management</h1>
           <button
-            onClick={() => navigate("/candidate/new")}
+            onClick={() => (navigate("/candidate/new"), setShowEdit(false))}
             className="add-employee"
           >
             Add Employee

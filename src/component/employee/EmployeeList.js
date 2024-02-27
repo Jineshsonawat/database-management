@@ -2,8 +2,13 @@ import { Link } from "react-router-dom";
 import { useData } from "../../context/DatabaseContext";
 
 function EmployeeList() {
-  const { userDetails, selectedData, setSelectedData, deleteUserDetail } =
-    useData();
+  const {
+    userDetails,
+    selectedData,
+    setSelectedData,
+    deleteUserDetail,
+    setShowEdit,
+  } = useData();
 
   return (
     <div className="employee__list">
@@ -24,7 +29,10 @@ function EmployeeList() {
                 to={`/candidate/${id}`}
                 className="employee__list--link flex-1"
               >
-                <strong onClick={() => setSelectedData(user)} className="name">
+                <strong
+                  onClick={() => (setSelectedData(user), setShowEdit(false))}
+                  className="name"
+                >
                   {name}
                 </strong>
               </Link>
